@@ -1,0 +1,178 @@
+// Variables
+$softBlue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+$mainBG: hsl(217, 54%, 11%);
+$cardBG: hsl(216, 50%, 16%);
+$line: hsl(215, 32%, 27%);
+$white: hsl(0, 0%, 100%);
+
+// Mixin
+@mixin mobile {
+    @media (max-width: 400px) {
+        @content;
+    }
+}
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: $mainBG;
+    color: $softBlue
+}
+
+h1 {
+    font-size: 24px;
+    @include mobile {
+        font-size: 18px;
+    }
+}
+
+p {
+    font-size: 18px;
+    @include mobile {
+        font-size: 14px;
+    }
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: $white;
+    transition: all .3s;
+    &:hover {
+        color: $cyan;
+    }
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.card {
+    max-width: 430px;
+    padding: 30px;
+    margin: 30px auto;
+    background: $cardBG;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .5);
+    @include mobile {
+        padding: 20px;
+    }
+}
+
+.imgLink {
+    position: relative;
+    img {
+        max-width: 370px;
+        max-height: 370px;
+        border-radius: 10px;
+    }
+}
+
+.imgHover {
+    border-radius: 10px;
+    background: rgba($cyan, .4);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    max-width: 370px;
+    max-height: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all .5s;
+    img {
+        width: clamp(48px, 20%, 64px);
+    }
+}
+
+.imgLink:hover .imgHover {
+    opacity: 1;
+}
+
+.description {
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    @include mobile {
+        letter-spacing: normal;
+        line-height: 1.8;
+    }
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 1px solid $line;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    color: $cyan;
+    img {
+        width: 11px;
+        height: 18px;
+        margin-right: 6px;
+    }
+    p {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    img {
+        width: 17px;
+        height: 17px;
+        margin-right: 6px;
+    }
+    p{
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid $white;
+        margin-right: 18px;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    a {
+        color: hsl(228, 45%, 44%);
+        transition: all .3s;
+        &:hover {
+            color: $cyan;
+        }
+    }
+}
