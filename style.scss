@@ -17,11 +17,11 @@ $white: hsl(0, 0%, 100%);
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
 
 * {
-    font-family: 'Outfit', sans-serif;
     box-sizing: border-box;
 }
 
 body {
+    font-family: 'Outfit', sans-serif;
     background: $mainBG;
     color: $softBlue
 }
